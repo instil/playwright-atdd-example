@@ -1,0 +1,31 @@
+{
+  "name": "playwright-atdd-example-acceptance-tests",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm typescript:checks && pnpm lint && pnpm test:unit",
+    "typescript:checks": "tsc --noEmit",
+    "lint": "eslint ./src",
+    "test:unit": "vitest --run --passWithNoTests",
+    "test:ui": "playwright test",
+    "test:ui:interactive": "playwright test --ui",
+    "setup": "pnpm exec playwright install",
+    "fix:lint": "eslint --fix",
+    "fix:lineEndings": "pnpm exec prettier --write \"**/*.{ts,tsx,js,jsx,json,css,scss,md,html,yml,yaml,mts}\" --end-of-line lf"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.1",
+    "@types/node": "24.5.2",
+    "date-fns": "4.1.0",
+    "exceljs": "4.4.0",
+    "es-toolkit": "1.40.0",
+    "eslint": "9.36.0",
+    "eslint-plugin-playwright": "2.2.2",
+    "eslint-plugin-security": "3.0.1",
+    "globals": "16.4.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.2.4"
+  }
+}

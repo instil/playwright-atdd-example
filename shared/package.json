@@ -1,0 +1,28 @@
+{
+  "name": "playwright-atdd-example-shared",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "pnpm compile && pnpm lint && pnpm test",
+    "compile": "tsc --noEmit",
+    "lint": "eslint --no-error-on-unmatched-pattern ./src",
+    "test": "vitest --run --passWithNoTests",
+    "fix:lint": "eslint --fix",
+    "fix:lineEndings": "pnpm exec prettier --write \"**/*.{ts,tsx,js,jsx,json,css,scss,md,html,yml,yaml,mts}\" --end-of-line lf"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.36.0",
+    "@types/node": "24.5.2",
+    "@types/eslint-plugin-security": "3.0.0",
+    "typescript": "5.9.3",
+    "eslint": "9.36.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-jest": "29.0.1",
+    "eslint-plugin-no-relative-import-paths": "1.6.1",
+    "eslint-plugin-prettier": "5.5.4",
+    "eslint-plugin-security": "3.0.1",
+    "prettier": "3.6.2",
+    "globals": "16.4.0",
+    "typescript-eslint": "8.45.0",
+    "vitest": "3.2.4"
+  }
+}
