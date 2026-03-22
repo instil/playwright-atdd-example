@@ -11,7 +11,7 @@ export const BackButton: FC<Props> = ({ testId }) => {
   return (
     <button
       data-testid={testId}
-      className="absolute top-4 left-4 px-4 py-2 text-sm font-medium text-neutral-600 hover:text-neutral-900 border border-neutral-300 rounded-lg hover:border-neutral-400 cursor-pointer"
+      className="absolute top-4 left-4 px-4 py-2 text-sm font-medium text-neutral-600 hover:text-neutral-900 dark:text-white dark:hover:text-white border border-neutral-300 rounded-lg hover:border-neutral-400 cursor-pointer"
       onClick={() => void navigate("/")}
     >
       ← Back
