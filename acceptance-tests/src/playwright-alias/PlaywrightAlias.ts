@@ -4,7 +4,7 @@ import {
   type BrowserContext,
   type Page,
 } from "@playwright/test";
-import { MySite } from "@/dsl/webapp/MySiteDsl";
+import { TicTacToe } from "@/dsl/webapp/TicTacToeDsl";
 
 const _given = (title: string, body: () => void): void =>
   playwrightTest.describe(`given ${title}`, body);
@@ -23,7 +23,7 @@ _when.skip = (title: string, body: () => void): void =>
 export const when = _when as typeof playwrightTest.describe;
 
 type CustomFixtures = {
-  mySite: MySite;
+  ticTacToe: TicTacToe;
 };
 
 type WorkerFixtures = {
@@ -66,8 +66,8 @@ const _thenWithForcedFixture = playwrightTest.extend<
   page: undefined,
 
   // Test-scoped fixture: create a DSL instance per test, but reuse context/page
-  mySite: async ({ sharedContext }, use) => {
-    const { context, page } = sharedContext;
+  ticTacToe: async ({ sharedContext }, use) => {
+    const { page } = sharedContext;
 
     // Clear route handlers from previous tests
     await page.unrouteAll({ behavior: "ignoreErrors" });
@@ -75,9 +75,11 @@ const _thenWithForcedFixture = playwrightTest.extend<
     // Reset clock from previous tests
     await page.clock.setSystemTime(new Date());
 
-    const mySiteInstance = new MySite(context, page);
+    const ticTacToeInstance = new TicTacToe(page);
 
-    await use(mySiteInstance);
+    await ticTacToeInstance.goTo();
+
+    await use(ticTacToeInstance);
   },
 });
 

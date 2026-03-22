@@ -13,6 +13,9 @@
     "fix:lint": "eslint --fix",
     "fix:lineEndings": "pnpm exec prettier --write \"**/*.{ts,tsx,js,jsx,json,css,scss,md,html,yml,yaml,mts}\" --end-of-line lf"
   },
+  "dependencies": {
+    "dotenv": "16.5.0"
+  },
   "devDependencies": {
     "@playwright/test": "1.55.1",
     "@types/node": "24.5.2",

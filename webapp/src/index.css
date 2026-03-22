@@ -14,7 +14,7 @@
   --color-muted-foreground: #737373;
 }
 
-:root:has(.dark) {
+:root.dark {
   --color-background: #0a0a0a;
   --color-foreground: #ededed;
   --color-muted: #262626;
