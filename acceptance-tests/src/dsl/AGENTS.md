@@ -5,6 +5,7 @@ Follow all conventions in the root `AGENTS.md` and `acceptance-tests/AGENTS.md` 
 ## Never
 
 - Use Playwright `Page` directly in a DSL class — only pass it to Playwright or DSL constructors
+- Pass a `Locator` into or out of a DSL — DSL constructors accept only `Page` and/or plain string identifiers (e.g. `testId`); locator creation belongs in the Playwright layer
 - Use abstract methods or subclass overrides for error messages — use generic inline strings; the stack trace is sufficient
 - Place a `*Playwright.ts` file in a parent directory's `playwright/` folder — it must live in a `playwright/` subfolder at the same level as the DSL file it serves
 - Name the private Playwright field anything other than `playwright` (not `{name}Playwright`)

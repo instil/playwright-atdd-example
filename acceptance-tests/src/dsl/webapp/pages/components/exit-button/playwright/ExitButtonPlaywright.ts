@@ -1,7 +1,11 @@
-import type { Locator } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 export class ExitButtonPlaywright {
-  constructor(private readonly button: Locator) {}
+  private readonly button;
+
+  constructor(page: Page, testId: string) {
+    this.button = page.getByTestId(testId);
+  }
 
   async click(): Promise<void> {
     await this.button.click();

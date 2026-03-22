@@ -23,9 +23,7 @@ export class GamePageDsl extends PageDsl {
     this.playwright = new GamePagePlaywright(page);
 
     this.board = new GameBoardDsl(page);
-    this.exitButton = new ExitButtonDsl(
-      page.getByTestId("gamePage__backButton"),
-    );
+    this.exitButton = new ExitButtonDsl(page, "gamePage__backButton");
     this.gameOver = new GameOverDsl(page);
     this.scoreboard = new ScoreboardDsl(page);
     this.sideSelector = new SideSelectorDsl(page);

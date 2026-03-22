@@ -12,6 +12,31 @@ This project is structured to teach:
 - **Architecture boundaries** — ESLint-enforced rules that prevent layers from importing outside their permitted scope
 - **Monorepo layout** — three separate packages (`webapp`, `acceptance-tests`, `shared`) with a single install
 
+## Example - Add the board to the game over screen
+
+### We want to build the test first to validate it
+
+```
+Create an acceptance test to update the game over screen to show the board state as well. Do not do the implementation yet.
+
+The top level given will be "a Player wants to see the game board when a round has finished".
+
+I want you to test both x and o winning, and draw situation.
+Put those in separate nested givens like `given("player X wins"` etc
+```
+
+### We want to build the thing
+
+```
+Now do the implementation
+```
+
+### We want determinstic proof it worked
+
+```
+Run the build and fix any issues, and then run the UI tests and fix any issues with the UI tests
+```
+
 ## Project Structure
 
 ```
@@ -26,13 +51,13 @@ See the README in each folder for more detail.
 
 ## Tech Stack
 
-| Area | Tools |
-|---|---|
-| Application | [React 19](https://react.dev/), [Vite](https://vite.dev/), [React Router](https://reactrouter.com/), [Zustand](https://zustand.docs.pmnd.rs/), [Tailwind CSS](https://tailwindcss.com/) |
-| Unit tests | [Vitest](https://vitest.dev/) |
-| Acceptance tests | [Playwright](https://playwright.dev/) |
-| Language | [TypeScript](https://www.typescriptlang.org/) |
-| Package manager | [pnpm](https://pnpm.io/) (workspaces) |
+| Area             | Tools                                                                                                                                                                                   |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Application      | [React 19](https://react.dev/), [Vite](https://vite.dev/), [React Router](https://reactrouter.com/), [Zustand](https://zustand.docs.pmnd.rs/), [Tailwind CSS](https://tailwindcss.com/) |
+| Unit tests       | [Vitest](https://vitest.dev/)                                                                                                                                                           |
+| Acceptance tests | [Playwright](https://playwright.dev/)                                                                                                                                                   |
+| Language         | [TypeScript](https://www.typescriptlang.org/)                                                                                                                                           |
+| Package manager  | [pnpm](https://pnpm.io/) (workspaces)                                                                                                                                                   |
 
 ## Setup
 
@@ -40,15 +65,16 @@ See the README in each folder for more detail.
 
 Install the following tools before getting started. Each link points to the official installation guide for that tool.
 
-| Tool | Purpose | Install guide |
-|---|---|---|
+| Tool    | Purpose            | Install guide                                                                                                                         |
+| ------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
 | Node.js | JavaScript runtime | [nvm](https://github.com/nvm-sh/nvm) (recommended) — install nvm, then run `nvm install` in this repo to pick up the `.nvmrc` version |
-| pnpm | Package manager | [pnpm installation](https://pnpm.io/installation) |
-| Git | Version control | [Git downloads](https://git-scm.com/downloads) |
+| pnpm    | Package manager    | [pnpm installation](https://pnpm.io/installation)                                                                                     |
+| Git     | Version control    | [Git downloads](https://git-scm.com/downloads)                                                                                        |
 
 > **Windows users (WSL):** This project is intended for Linux-based environments. Use [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install) with a Linux distribution rather than native Windows tooling.
 
 > **Git line endings:** On Windows/WSL, configure git to avoid line-ending conflicts:
+>
 > ```bash
 > git config --global core.autocrlf false
 > git config --global core.longpaths true
@@ -83,21 +109,27 @@ The app runs at `http://localhost:5173` by default.
 
 Run from the **repository root** unless otherwise noted.
 
-| Command | Description |
-|---|---|
-| `pnpm build` | Build all packages — runs TypeScript checks, lint, and tests across the monorepo |
-| `pnpm test` | Run all unit tests (Vitest) |
-| `pnpm run typescript:checks` | Type-check all packages |
-| `pnpm lint --fix` | Fix formatting and lint issues |
-| `cd acceptance-tests && pnpm test:ui` | Run all acceptance tests |
-| `cd acceptance-tests && pnpm test:ui -- src/tests/path/to/File.ui.ts` | Run a single acceptance test file |
+| Command                                                               | Description                                                                      |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `pnpm build`                                                          | Build all packages — runs TypeScript checks, lint, and tests across the monorepo |
+| `pnpm test`                                                           | Run all unit tests (Vitest)                                                      |
+| `pnpm run typescript:checks`                                          | Type-check all packages                                                          |
+| `pnpm lint --fix`                                                     | Fix formatting and lint issues                                                   |
+| `cd acceptance-tests && pnpm test:ui`                                 | Run all acceptance tests                                                         |
+| `cd acceptance-tests && pnpm test:ui -- src/tests/path/to/File.ui.ts` | Run a single acceptance test file                                                |
 
 ## How Acceptance Tests Are Written
 
 Tests follow a Given/When/Then structure using aliased Playwright functions:
 
 ```typescript
-import { given, when, then, setup, expect } from "@/playwright-alias/PlaywrightAlias";
+import {
+  given,
+  when,
+  then,
+  setup,
+  expect,
+} from "@/playwright-alias/PlaywrightAlias";
 
 given("a Player is on the home page", () => {
   when("they navigate to the app", () => {

@@ -17,9 +17,7 @@ export class SettingsPageDsl extends PageDsl {
     this.settingsPagePlaywright = new SettingsPagePlaywright(page);
 
     this.darkModeToggle = new DarkModeToggleButtonDsl(page);
-    this.exitButton = new ExitButtonDsl(
-      page.getByTestId("settingsPage__backButton"),
-    );
+    this.exitButton = new ExitButtonDsl(page, "settingsPage__backButton");
   }
 
   async isVisible(): Promise<boolean> {

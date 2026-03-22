@@ -1,12 +1,12 @@
 import { DslError } from "@/dsl/errors/DslError";
 import { ExitButtonPlaywright } from "@/dsl/webapp/pages/components/exit-button/playwright/ExitButtonPlaywright";
-import type { Locator } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 export class ExitButtonDsl {
   private readonly exitButtonPlaywright: ExitButtonPlaywright;
 
-  constructor(button: Locator) {
-    this.exitButtonPlaywright = new ExitButtonPlaywright(button);
+  constructor(page: Page, testId: string) {
+    this.exitButtonPlaywright = new ExitButtonPlaywright(page, testId);
   }
 
   async click(): Promise<void> {

@@ -2,7 +2,7 @@
 
 Example repository for doing Acceptance Test Driven Development via playwright on a React app.
 
-> **Subdirectory instruction files:** Additional AGENTS.md files in `webapp/` and `acceptance-tests/` extend these rules for their respective workspaces. Always read the nearest AGENTS.md before editing files in those directories.
+> **AI instruction files:** This project uses `AGENTS.md` as the authoritative AI instruction file at every level. No `CLAUDE.md` or other AI instruction files are used. Additional `AGENTS.md` files in `webapp/` and `acceptance-tests/` extend these rules for their respective workspaces. Always read the nearest `AGENTS.md` before editing files in those directories.
 
 ## Never
 
